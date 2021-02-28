@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Library Admin</title>
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" th:href="@{/css/assets/images/favicon.png}" />
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" th:href="@{/}"><img src="/css/assets/images/logo.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="@{/}"><img src="/css/assets/images/logo-mini.svg" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="/css/assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">Vijendra Reddy</h5>
+                  <span>Library Admin</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" th:href="@{/}">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" th:href="@{/pages/forms/basic_elements.html}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Add Book</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" th:href="@{/pages/forms/checkout.html}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Check-out Book</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.html -->
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+          </div>
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-menu"></span>
+            </button>
+            <ul class="navbar-nav w-100">
+              <li class="nav-item w-100">
+                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
+                  <input type="text" class="form-control" placeholder="Search Books by Name or Author">
+				  <button type="button" class="btn btn-primary mr-2">Search</button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+			<div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Check-out</h4>
+                    <form class="forms-sample" action="#"  th:action="@{/pages/forms/checkout.html}" th:object="${checkoutbook}" method="post">
+                      <div class="form-group">
+                        <label for="username">user</label>
+                        <input type="text" class="form-control" th:field="*{username}" id="username" placeholder="USER">
+                      </div>
+                      <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" class="form-control" th:field="*{isbn}" id="isbn" placeholder="ISBN">
+                      </div>
+                      <div class="form-group">
+                        <label for="count">Count</label>
+                        <input type="number" class="form-control" th:field="*{count}" id="count" placeholder="1">
+                      </div>
+                      <div class="form-group">
+                        <label for="codate">Check-out date</label>
+                        <input type="datetime-local" class="form-control" th:field="*{codate}" id="codate" placeholder="28-02-2-21">
+                      </div>
+                      <div class="form-group">
+                        <label for="ecidate">Expected Check-in date</label>
+                        <input type="datetime-local" class="form-control" th:field="*{ecidate}" id="ecidate" placeholder="28-02-2-21">
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      <button class="btn btn-dark">Cancel</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    
+  </body>
+</html>
